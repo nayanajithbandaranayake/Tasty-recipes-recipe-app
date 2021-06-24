@@ -1,0 +1,8 @@
+export const FETCH_RECIPES = "FETCH_RECIPES";
+export const FETCH_SINGLE_RECIPE = "FETCH_SINGLE_RECIPE";
+export const COUNT_TOTAL = "COUNT_TOTAL";
+export const FETCH_BREAKFAST = "FETCH_BREAKFAST";
+export const FETCH_LUNCH = "FETCH_LUNCH";
+export const FETCH_DINNER = "FETCH_DINNER";
+export const FETCH_DESSERTS = "FETCH_DESSERTS";
+export const UPDATE_TEXT = "UPDATE_TEXT";
