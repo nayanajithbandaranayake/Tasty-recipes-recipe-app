@@ -9,10 +9,10 @@ const Navbar = () => {
   return (
     <Wrapper className="nav">
       <Logo />
-      <button type="button" className="hamburger">
+      {/* <button type="button" className="hamburger">
         <FaBars />
-      </button>
-      <div className="pages-container">
+      </button> */}
+      {/* <div className="pages-container">
         {pages.map((page) => {
           return (
             <Link className="pages" key={page.id} to={page.url}>
@@ -20,7 +20,7 @@ const Navbar = () => {
             </Link>
           );
         })}
-      </div>
+      </div> */}
     </Wrapper>
   );
 };

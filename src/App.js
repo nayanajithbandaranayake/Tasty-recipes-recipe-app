@@ -33,6 +33,7 @@ const initialState = {
   dessert_recipes: [],
   total_recipes: 0,
   single_recipe: {
+    instructions:'',
     title: "",
     id: null,
     extendedIngredients: [],

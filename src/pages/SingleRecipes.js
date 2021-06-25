@@ -35,21 +35,27 @@ const SingleRecipes = ({
     <Wrapper className="section">
       <img src={image} alt={title} className="cover-image" />
       <section>
+        <h1 className="title">{title}</h1>
         <img src={image} alt={title} />
         <div className="info-container">
-          <h2>Info</h2>
-          <div>
-            <span>{dishTypes[0]}</span>
-            <span>{dishTypes[1]}</span>
-            <span>Total time: {readyInMinutes} mins.</span>
-            <span>yield: {servings}</span>
-          </div>
+          <ul>
+            <fieldset>
+              <legend>Dish type</legend>
+              <li>{dishTypes[0]}</li>
+              <li>{dishTypes[1]}</li>
+            </fieldset>
+            <fieldset>
+              <li>Total time : {readyInMinutes} mins.</li>
+              <li>yield : {servings}</li>
+            </fieldset>
+          </ul>
         </div>
         <article className="ingredients-container">
+          <h2 className="heading">Ingredients</h2>
           <ul>
             {extendedIngredients.map((item) => {
               return (
-                <li key={item.id}>
+                <li key={item.id} className="ingredient">
                   <input type="checkbox" />
                   <h3>{item.original}</h3>
                 </li>
@@ -58,12 +64,12 @@ const SingleRecipes = ({
           </ul>
         </article>
         <article className="summary">
-          <h2>Summary</h2>
+          <h2 className="heading">Summary</h2>
           <p dangerouslySetInnerHTML={{ __html: summary }}></p>
         </article>
         <article className="instructions">
-          <h2>Instructions</h2>
-          <div dangerouslySetInnerHTML={{ __html: instructions }}></div>
+          <h2 className="heading">Instructions</h2>
+          <p dangerouslySetInnerHTML={{ __html: instructions }}></p>
         </article>
       </section>
     </Wrapper>
@@ -78,37 +84,100 @@ const mapStateToProps = (state) => {
 };
 
 const Wrapper = styled.main`
+  max-height: 100vh;
+  display: grid;
+  place-items: center;
+
+  .heading {
+    margin-bottom: 50px;
+    margin-top: 30px;
+    display: inline-block;
+    position: relative;
+  }
+  .heading::after {
+    content: "";
+    position: absolute;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    height: 5px;
+    border-radius: 10px;
+    background: #06d6a0;
+  }
+
   .cover-image {
     filter: blur(10px);
   }
-  display: grid;
-  place-items: center;
   section {
+    text-align: center;
     margin: 3em;
     background: #fff;
-    min-height: calc(100% - 6em);
+    height: 290vh;
     min-width: calc(100% - 6em);
     display: grid;
-    grid-template-columns: 40% 60%;
-    grid-template-rows: auto 4em 70% auto;
+    grid-template-columns: 70% 30%;
+    grid-template-rows: 6em 30% 65vh 65vh 65vh;
+
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.3);
+    padding: 5em;
+    border-radius: 10px;
+
+    article {
+      margin-bottom: 30px;
+    }
+    .title {
+      grid-column: 1 / 3;
+      grid-row: 1;
+      text-align: center;
+      font-size: 2em;
+      position: relative;
+      display: inline-block;
+      margin-bottom: 4em;
+      justify-self: center;
+    }
+    .title::after {
+      content: "";
+      position: absolute;
+      left: -15px;
+      right: -15px;
+      bottom: -15px;
+      height: 5px;
+      border-radius: 10px;
+      background: #06d6a0;
+    }
+
     img {
-      height: 100%;
+      border-radius: 10px;
+
+      height: 80%;
+      width: 100%;
       grid-column: 1;
-      grid-row: 2 / 3;
+      grid-row: 2;
+      object-fit: cover;
     }
     .info-container {
       grid-column: 2;
       grid-row: 2;
+      ul {
+        list-style: none;
+      }
     }
     .summary {
       grid-column: 1 / 3;
-      grid-row: 1;
+      grid-row: 5;
+      line-height: 1.5em;
     }
     .ingredients-container {
-      grid-column: 2;
+      margin-top: 2em;
+      grid-column: 1 / 3;
       grid-row: 3;
       ul {
         list-style: none;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         li {
           display: flex;
           align-items: center;
@@ -118,6 +187,26 @@ const Wrapper = styled.main`
           }
         }
       }
+    }
+    .instructions {
+      grid-column: 1 / 3;
+      grid-row: 4;
+      line-height: 1.5em;
+    }
+    fieldset {
+      margin: 15px;
+      padding: 1em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      border-radius: 20px;
+      legend {
+        padding: 0 5px;
+      }
+    }
+    .ingredient {
+      font-size: 0.7em;
     }
   }
 `;
