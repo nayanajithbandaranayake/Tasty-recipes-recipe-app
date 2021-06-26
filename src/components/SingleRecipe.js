@@ -15,7 +15,7 @@ const singleRecipe = ({ id, title, image }) => {
 };
 
 const Wrapper = styled.article`
-  background: #afd0bf;
+  background: #eff2fb;
   overflow: hidden;
   border-radius: 1em;
   transition: var(--transition);

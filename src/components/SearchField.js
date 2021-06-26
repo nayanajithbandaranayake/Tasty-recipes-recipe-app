@@ -5,6 +5,10 @@ import { connect } from "react-redux";
 import { UPDATE_TEXT, FETCH_RECIPES } from "../actions/types";
 
 const SearchField = ({ input_text, dispatch, recipe_search }) => {
+  const scroll = () => {
+    return window.scrollTo({ top: 850, behavior: "smooth" });
+  };
+
   const handleChange = (e) => {
     console.log(e.target.value);
     dispatch({ type: UPDATE_TEXT, payload: e.target.value });
@@ -23,6 +27,9 @@ const SearchField = ({ input_text, dispatch, recipe_search }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     fetchRecipes(recipe_search);
+    setTimeout(() => {
+      scroll();
+    }, 700);
   };
 
   return (
@@ -132,6 +139,26 @@ const Wrapper = styled.section`
     .title-form {
       margin: auto 1em 4em 1.5em;
       font-size: 3.5em;
+    }
+  }
+  @media (min-width: 1921px) {
+    form {
+      display: grid;
+      grid-template-columns: 80% 20%;
+      align-items: center;
+    }
+    .search-btn {
+      height: 100%;
+      width: 100%;
+      grid-column: 2;
+      margin: 0;
+    }
+    .form-input {
+      height: 100%;
+      margin: 0;
+      grid-column: 1;
+
+      margin-left: 8em;
     }
   }
 `;

@@ -40,8 +40,8 @@ const MainWrapper = styled.section`
   h1::after {
     content: "";
     position: absolute;
-    right: -60px;
-    left: -60px;
+    right: -15px;
+    left: -15px;
     bottom: -12px;
     height: 5px;
     border-radius: 10px;

@@ -3,20 +3,9 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 
-import {
-  MainMenu,
-  Dinner,
-  Lunch,
-  Breakfast,
-  SingleRecipes,
-  Desserts,
-} from "./pages";
+import { MainMenu, SingleRecipes } from "./pages";
 import { NavBar } from "./components";
 import { recipesReducer } from "./reducers/recipesReducer";
-
-// https://api.spoonacular.com/recipes/complexSearch?apiKey=842d053de45f49cfa0acde61ec528349&number=20&limitLicence=true&query=
-// https://api.spoonacular.com/recipes/complexSearch?apiKey=842d053de45f49cfa0acde61ec528349&number=20&limitLicence=true&type=
-// https://api.spoonacular.com/recipes/{id}/information?includeNutrition=false&apiKey=842d053de45f49cfa0acde61ec528349
 
 const initialState = {
   input_text: "",
@@ -33,7 +22,7 @@ const initialState = {
   dessert_recipes: [],
   total_recipes: 0,
   single_recipe: {
-    instructions:'',
+    instructions: "",
     title: "",
     id: null,
     extendedIngredients: [],
@@ -43,6 +32,8 @@ const initialState = {
     readyInMinutes: 0,
     servings: 0,
   },
+
+  searched: false,
 };
 
 const store = createStore(
@@ -59,18 +50,6 @@ const App = () => {
         <Switch>
           <Route exact path="/">
             <MainMenu />
-          </Route>
-          <Route exact path="/breakfast">
-            <Breakfast />
-          </Route>
-          <Route exact path="/lunch">
-            <Lunch />
-          </Route>
-          <Route exact path="/dinner">
-            <Dinner />
-          </Route>
-          <Route exact path="/desserts">
-            <Desserts />
           </Route>
           <Route exact path="/:id" children={<SingleRecipes />} />
         </Switch>

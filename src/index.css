@@ -92,9 +92,17 @@ button {
 }
 @media (min-width: 1250px) {
   body {
-    font-size: 25px;
+    font-size: 19px;
   }
   .section footer {
-    bottom: 2em;
+    bottom: 1.8em;
+  }
+}
+@media (min-width: 1921px) {
+  body {
+    font-size: 24px;
+  }
+  .section footer {
+    bottom: 1.8em;
   }
 }

@@ -1,26 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { FaBars } from "react-icons/fa";
 
 import Logo from "./Logo";
-import { pages } from "../data/data";
 const Navbar = () => {
   return (
     <Wrapper className="nav">
       <Logo />
-      {/* <button type="button" className="hamburger">
-        <FaBars />
-      </button> */}
-      {/* <div className="pages-container">
-        {pages.map((page) => {
-          return (
-            <Link className="pages" key={page.id} to={page.url}>
-              {page.text}
-            </Link>
-          );
-        })}
-      </div> */}
     </Wrapper>
   );
 };

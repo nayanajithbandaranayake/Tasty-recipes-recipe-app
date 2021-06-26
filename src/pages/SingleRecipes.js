@@ -111,12 +111,13 @@ const Wrapper = styled.main`
   section {
     text-align: center;
     margin: 3em;
+    margin-bottom: 10vh;
     background: #fff;
-    height: 290vh;
+    min-height: calc(200vh + 13em);
     min-width: calc(100% - 6em);
     display: grid;
     grid-template-columns: 70% 30%;
-    grid-template-rows: 6em 30% 65vh 65vh 65vh;
+    grid-template-rows: 6em 45vh 45vh auto 45vh;
 
     justify-content: center;
     align-items: center;
@@ -169,6 +170,7 @@ const Wrapper = styled.main`
       grid-column: 1 / 3;
       grid-row: 5;
       line-height: 1.5em;
+      margin-bottom: 3em;
     }
     .ingredients-container {
       margin-top: 2em;
@@ -200,7 +202,7 @@ const Wrapper = styled.main`
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      border-radius: 20px;
+      border-radius: 0.75em;
       legend {
         padding: 0 5px;
       }
@@ -208,7 +210,16 @@ const Wrapper = styled.main`
     .ingredient {
       font-size: 0.7em;
     }
+    ol {
+      list-style: none;
+    }
   }
+  /* @media (max-width: 350px) {
+    section {
+      height: calc(13em + 260vh);
+      grid-template-rows: 6em 45vh 45vh 100vh 70vh;
+    }
+  } */
 `;
 
 export default connect(mapStateToProps)(SingleRecipes);

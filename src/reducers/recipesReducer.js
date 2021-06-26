@@ -24,6 +24,7 @@ export const recipesReducer = (state = initialState, action) => {
   if (action.type === FETCH_RECIPES) {
     return {
       ...state,
+      searched: true,
       recipes: action.payload,
     };
   }
